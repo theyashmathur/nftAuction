@@ -662,7 +662,7 @@ contract NFTAuction {
         address _highestBidder = auctions.nftHighestBidder;
         uint _highestBid = auctions.nftHighestBid;
         
-        payFeesAndSeller(nftContractAddress, tokenId, _nftSeller, _highestBid);
+        payFeesAndSeller(tokenId, _nftSeller, _highestBid);
 
         resetBids(nftContractAddress, tokenId);
 
@@ -676,7 +676,7 @@ contract NFTAuction {
 
 
     // Pay fees, seller
-    function payFeesAndSeller(address nftContractAddress, uint tokenId, address _nftSeller, uint _highestBid) internal {
+    function payFeesAndSeller(uint tokenId, address _nftSeller, uint _highestBid) internal {
         // Marketplace fee calculation
         uint feesPaid;
         uint fee = (_highestBid * commission) / 100;
